@@ -1,0 +1,323 @@
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: #f1f1f1;
+}
+
+/* 消息容器 */
+.message-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 120px);
+  overflow-y: auto;
+  position: relative;
+}
+
+/* 新增消息容器样式 */
+.messages-wrapper {
+  flex: 1;
+  padding: 20px 15px 80px;
+  overflow-y: auto;
+}
+
+/* 思考内容块样式 */
+.message-bubble .think-block {
+  background-color: rgba(245, 245, 245, 0.8);
+  padding: 10px 15px;
+  border-radius: 6px;
+  border-left: 3px solid #aaa;
+  margin-bottom: 15px;
+  color: #666;
+  font-size: 0.9em;
+  line-height: 1.4;
+  font-style: italic;
+  word-wrap: break-word;
+}
+
+/* 思考标签样式 */
+.think-label {
+  font-weight: bold;
+  color: #4caf50;
+  margin-bottom: 8px;
+  font-size: 0.9em;
+}
+
+/* 回复标签样式 */
+.reply-label {
+  font-weight: bold;
+  color: #2196F3;
+  margin-bottom: 8px;
+  font-size: 0.9em;
+}
+
+/* 内容分隔线 */
+.message-bubble .content-separator {
+  height: 1px;
+  background-color: #ddd;
+  margin: 12px 0;
+  position: relative;
+}
+
+.message-bubble .content-separator::after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #fff;
+  padding: 0 10px;
+  color: #888;
+  font-size: 12px;
+}
+
+/* AI消息气泡样式 */
+.ai-message .message-bubble .content-separator::after {
+  background-color: white;
+}
+
+/* 用户消息气泡样式 */
+.user-message .message-bubble .content-separator::after {
+  background-color: #9eea6a;
+}
+
+/* 主要内容样式 */
+.message-bubble .main-content {
+  padding-top: 5px;
+  word-wrap: break-word;
+}
+
+/* 思考内容样式 */
+.think-content {
+  margin-top: 8px;
+  padding: 8px 12px;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+  border-left: 3px solid #ccc;
+  color: #777;
+  font-size: 0.85em;
+  line-height: 1.4;
+  font-style: italic;
+}
+
+/* 强调文本样式 */
+.emphasis {
+  font-style: italic;
+  color: #0066cc;
+}
+
+/* 内联思考内容 */
+span.think-content {
+  display: inline-block;
+  color: #777;
+  font-size: 0.85em;
+  background-color: #f5f5f5;
+  padding: 2px 5px;
+  border-radius: 3px;
+  margin: 0 2px;
+  border-left: 2px solid #ccc;
+}
+
+.think-item {
+  color: #777;
+  font-size: 0.85em;
+  line-height: 1.4;
+  margin-bottom: 4px;
+  font-style: italic;
+}
+
+/* 微信风格滚动条 */
+.messages-wrapper::-webkit-scrollbar {
+  width: 6px;
+}
+
+.messages-wrapper::-webkit-scrollbar-thumb {
+  background-color: rgba(0,0,0,0.2);
+  border-radius: 3px;
+}
+
+/* 对话气泡通用样式 */
+.message-item {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+/* 用户消息（右侧） */
+.user-message {
+  flex-direction: row-reverse;
+}
+
+/* AI消息（左侧） */
+.ai-message {
+  flex-direction: row;
+}
+
+/* 头像样式 */
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #ddd;
+}
+
+/* 消息气泡容器 */
+.message-bubble {
+  max-width: 70%;
+  position: relative;
+  padding: 12px 16px;
+  border-radius: 5px;
+  font-size: 14px;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  word-break: normal;
+}
+
+/* 用户气泡样式 */
+.user-message .message-bubble {
+  background: #9eea6a;
+  margin-right: 15px;
+}
+
+/* AI气泡样式 */
+.ai-message .message-bubble {
+  background: white;
+  margin-left: 15px;
+}
+
+/* 气泡箭头 */
+.message-bubble::after {
+  content: '';
+  position: absolute;
+  top: 14px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+}
+
+.user-message .message-bubble::after {
+  right: -12px;
+  border-left-color: #9eea6a;
+}
+
+.ai-message .message-bubble::after {
+  left: -12px;
+  border-right-color: white;
+}
+
+/* 时间戳样式 */
+.message-time {
+  text-align: center;
+  color: #888;
+  font-size: 12px;
+  margin: 10px 0;
+}
+
+/* 底部输入栏 */
+.input-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: white;
+  padding: 15px;
+  box-shadow: 0 -2px 5px rgba(0,0,0,0.05);
+}
+
+form {
+  display: flex;
+  gap: 10px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+input {
+  flex: 1;
+  padding: 10px 15px;
+  border: 1px solid #e5e5e5;
+  border-radius: 20px;
+  outline: none;
+}
+
+button {
+  padding: 10px 25px;
+  background: #07c160;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  font-size: 14px;
+}
+
+button:disabled {
+  background: #b4b4b4;
+}
+
+/* 修复code标签样式 */
+.message-bubble code {
+  background-color: #f0f0f0;
+  padding: 2px 4px;
+  border-radius: 3px;
+  font-family: monospace;
+  color: #e83e8c;
+}
+
+/* 修复strong标签样式 */
+.message-bubble strong {
+  font-weight: bold;
+}
+
+/* 修复em标签样式 */
+.message-bubble em {
+  font-style: italic;
+}
+
+/* 修复del标签样式 */
+.message-bubble del {
+  text-decoration: line-through;
+}
+
+/* 添加新的样式 */
+.think-block {
+  background-color: #f8f5ff;
+  border-left: 3px solid #a395e9;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+}
+
+.content-separator {
+  margin: 15px 0;
+}
+
+.content-separator hr {
+  border: none;
+  border-top: 1px dashed #ddd;
+}
+
+.think-label, .reply-label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #666;
+}
+
+.think-label {
+  color: #8a70d6;
+}
+
+.reply-label {
+  color: #3a86ff;
+}
+
+.think-content {
+  font-style: italic;
+  color: #666;
+}
+
+.main-content {
+  background-color: #f0f7ff;
+  border-left: 3px solid #3a86ff;
+  padding: 10px 15px;
+  border-radius: 4px;
+}
